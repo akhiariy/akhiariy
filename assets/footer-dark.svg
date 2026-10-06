@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="120" viewBox="0 0 1000 120" role="img" aria-label="Build carefully. Explain clearly. Keep improving." fill="none">
+<style>@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<defs><linearGradient id="acc" x1="0" y1="0" x2="1" y2="0" spreadMethod="reflect"><stop offset="0" stop-color="#7C5CFF"/><stop offset="0.5" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/><animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
+<path d="M0 30 Q 250 0 500 30 T 1000 30" stroke="#1E2533" stroke-width="1.5">
+<animate attributeName="d" dur="8s" repeatCount="indefinite" values="M0 30 Q 250 0 500 30 T 1000 30;M0 30 Q 250 60 500 30 T 1000 30;M0 30 Q 250 0 500 30 T 1000 30"/></path>
+<text x="500" y="84" text-anchor="middle" font-family="ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="16" letter-spacing="1" fill="url(#acc)">Build carefully. Explain clearly. Keep improving.</text>
+</svg>
