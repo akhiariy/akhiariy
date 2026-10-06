@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="48" viewBox="0 0 1000 48" role="img" aria-label="02 selected work" fill="none">
+<style>.grow{stroke-dasharray:1000;animation:grow 1.6s ease-out both}@keyframes grow{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
+<defs><linearGradient id="acc" x1="0" y1="0" x2="1" y2="0" spreadMethod="reflect"><stop offset="0" stop-color="#7C5CFF"/><stop offset="0.5" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/></linearGradient>
+<linearGradient id="line" x1="0" x2="1"><stop offset="0" stop-color="#7C5CFF"/><stop offset="0.4" stop-color="#1E2533"/><stop offset="1" stop-color="#1E2533" stop-opacity="0"/></linearGradient></defs>
+<text x="0" y="30" font-family="ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="14" font-weight="700" fill="url(#acc)">02</text>
+<text x="30" y="30" font-family="ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="14" fill="#8B94A7">/</text>
+<text x="48" y="30" font-family="ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="16" font-weight="700" letter-spacing="1" fill="#E8ECF4">SELECTED WORK</text>
+<path class="grow" d="M202.8 25H1000" stroke="url(#line)" stroke-width="1.5"/>
+</svg>
