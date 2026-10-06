@@ -23,7 +23,7 @@ OUT = ROOT / "assets"
 FIRST_NAME = "Abdullah"
 LAST_NAME = "Khiariy"
 TAGLINE = "CS @ Arizona State University  ·  AI products  ·  Full-stack"
-STATUS = "building ReviewMyAgent"
+STATUS = "open to SWE opportunities"
 TYPING = [
     "building AI-powered products",
     "designing clean interfaces",
@@ -72,7 +72,7 @@ STACK = [
 BUTTONS = [
     ("linkedin", "LinkedIn", "in"),
     ("email", "Email", "@"),
-    ("website", "ReviewMyAgent", "↗"),
+    ("github", "Repositories", "↗"),
 ]
 
 SECTIONS = [
@@ -149,54 +149,63 @@ def accent_gradient(t, gid, animate=True):
 # --------------------------------------------------------------------------
 
 def typing_block(t, x, y, fs, phrases, slot=4.0):
-    """Typewriter effect built with discrete SMIL animations.
+    """Typewriter effect built from one <text> per character.
 
-    Each phrase is clipped by a rect whose width steps one character at a
-    time; textLength pins every glyph to the grid so clip and cursor line up
-    regardless of which monospace font the viewer has.
+    Each character fades in and out with its own step-end CSS animation, so
+    no clip paths or SMIL are involved (Safari and the GitHub app render
+    those inconsistently). Without animation support only the first phrase
+    shows, so a static renderer never overlaps the phrases.
     """
     cw = fs * 0.6
     total = slot * len(phrases)
-    parts, defs = [], []
-    cursor_pts = [(0.0, 0.0)]
+    css, parts = [], []
+    cursor_pts = []
+
+    def pct(sec):
+        return f"{sec / total * 100:.3f}%"
 
     for i, phrase in enumerate(phrases):
         n = len(phrase)
         s = i * slot
-        pts = [(0.0, 0.0), (s, 0.0)]
-        for k in range(1, n + 1):
-            pts.append((s + 0.2 + k * 0.055, k * cw))
         hold_end = s + slot - 0.9
+        step_del = 0.6 / n
+        cursor_pts.append((s, 0))
         for k in range(1, n + 1):
-            pts.append((hold_end + k * (0.6 / n), (n - k) * cw))
-        cursor_pts += pts[1:]
-        times = ";".join(f"{p[0] / total:.4f}" for p in pts) + ";1"
-        values = ";".join(f"{p[1]:.1f}" for p in pts) + ";0"
-        cid = f"type{i}"
-        defs.append(
-            f'<clipPath id="{cid}"><rect x="{x}" y="{y - fs}" width="0" height="{fs * 1.5}">'
-            f'<animate attributeName="width" calcMode="discrete" dur="{total}s" '
-            f'repeatCount="indefinite" keyTimes="{times}" values="{values}"/></rect></clipPath>'
-        )
-        parts.append(
-            f'<text x="{x}" y="{y}" clip-path="url(#{cid})" font-family="{MONO}" font-size="{fs}" '
-            f'fill="{t["text"]}" textLength="{n * cw:.1f}" lengthAdjust="spacing">{escape(phrase)}</text>'
-        )
+            on = s + 0.2 + k * 0.055
+            off = hold_end + (n - k + 1) * step_del
+            cursor_pts.append((on, k))
+            cursor_pts.append((hold_end + k * step_del, n - k))
+            ch = phrase[k - 1]
+            if ch == " ":
+                continue
+            cls = f"c{i}_{k}"
+            css.append(
+                f"@keyframes {cls}{{0%{{opacity:0}}{pct(on)}{{opacity:1}}{pct(off)}{{opacity:0}}100%{{opacity:0}}}}"
+                f".{cls}{{animation:{cls} {total}s step-end infinite}}"
+            )
+            hidden = "" if i == 0 else ' opacity="0"'
+            parts.append(
+                f'<text class="{cls}" x="{x + (k - 1) * cw:.1f}" y="{y}"{hidden}>{escape(ch)}</text>'
+            )
 
+    n0 = len(phrases[0])
     cursor_pts.sort(key=lambda p: p[0])
-    times = ";".join(f"{p[0] / total:.4f}" for p in cursor_pts) + ";1"
-    values = ";".join(f"{x + p[1]:.1f}" for p in cursor_pts) + f";{x}"
-    parts.append(
-        f'<rect class="caret" x="{x}" y="{y - fs * 0.8}" width="{fs * 0.5}" height="{fs}" rx="1.5" fill="{t["a2"]}">'
-        f'<animate attributeName="x" calcMode="discrete" dur="{total}s" repeatCount="indefinite" '
-        f'keyTimes="{times}" values="{values}"/></rect>'
+    frames = "".join(f"{pct(tm)}{{transform:translateX({(w - n0) * cw:.1f}px)}}" for tm, w in cursor_pts)
+    css.append(
+        f"@keyframes caretmove{{{frames}100%{{transform:translateX({-n0 * cw:.1f}px)}}}}"
+        f".caretpos{{animation:caretmove {total}s step-end infinite}}"
     )
-    return "".join(defs), "\n".join(parts)
+    body = (
+        f'<g font-family="{MONO}" font-size="{fs}" fill="{t["text"]}">' + "".join(parts) + "</g>\n"
+        f'<g class="caretpos"><rect class="caret" x="{x + n0 * cw + 2:.1f}" y="{y - fs * 0.8}" '
+        f'width="{fs * 0.5}" height="{fs}" rx="1.5" fill="{t["a2"]}"/></g>'
+    )
+    return "".join(css), body
 
 
 def header(t):
     W, H = 1000, 340
-    type_defs, type_body = typing_block(t, 92, 206, 22, TYPING)
+    type_css, type_body = typing_block(t, 92, 206, 22, TYPING)
     pill_w = len(STATUS) * 7.4 + 44
     pill_x = W - 36 - pill_w
     cx, cy = 838, 214
@@ -224,6 +233,7 @@ def header(t):
         f"@keyframes rise{{from{{opacity:0;transform:translateY(12px)}}to{{opacity:1;transform:none}}}}"
         f".core{{animation:breathe 4s ease-in-out infinite;transform-origin:{cx}px {cy}px}}"
         f"@keyframes breathe{{50%{{transform:scale(1.15)}}}}"
+        + type_css
     )
 
     body = f"""<defs>
@@ -234,7 +244,6 @@ def header(t):
 <radialGradient id="fade" cx="0.35" cy="0.4" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity="0.9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
 <mask id="gridmask"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>
 <radialGradient id="coreg"><stop offset="0" stop-color="{t["a2"]}"/><stop offset="0.6" stop-color="{t["a1"]}"/><stop offset="1" stop-color="{t["a1"]}" stop-opacity="0"/></radialGradient>
-{type_defs}
 </defs>
 <g clip-path="url(#frame)">
 <rect width="{W}" height="{H}" fill="{t["bg"]}"/>

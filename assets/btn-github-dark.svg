@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="196" height="48" viewBox="0 0 196 48" role="img" aria-label="ReviewMyAgent" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" width="188" height="48" viewBox="0 0 188 48" role="img" aria-label="Repositories" fill="none">
 <style>@media (prefers-reduced-motion: reduce){*{animation:none!important}}</style>
 <defs><linearGradient id="acc" x1="0" y1="0" x2="1" y2="0" spreadMethod="reflect"><stop offset="0" stop-color="#7C5CFF"/><stop offset="0.5" stop-color="#22D3EE"/><stop offset="1" stop-color="#F472B6"/><animateTransform attributeName="gradientTransform" type="translate" values="-1 0;1 0" dur="6s" repeatCount="indefinite"/></linearGradient></defs>
-<rect x="1" y="1" width="194" height="46" rx="23" fill="#0F1420" stroke="#1E2533"/>
+<rect x="1" y="1" width="186" height="46" rx="23" fill="#0F1420" stroke="#1E2533"/>
 <circle cx="25" cy="24" r="13" fill="url(#acc)"/>
 <text x="25" y="28.5" text-anchor="middle" font-family="ui-monospace,'SF Mono','JetBrains Mono',Menlo,Consolas,'Liberation Mono',monospace" font-size="12" font-weight="700" fill="#fff">↗</text>
-<text x="48" y="29" font-family="'Inter','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#E8ECF4">ReviewMyAgent</text>
+<text x="48" y="29" font-family="'Inter','Segoe UI',-apple-system,BlinkMacSystemFont,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="600" fill="#E8ECF4">Repositories</text>
 </svg>
