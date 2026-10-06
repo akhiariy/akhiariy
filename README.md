@@ -8,7 +8,7 @@
 
 <a href="https://www.linkedin.com/in/abdullah-khiariy/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-linkedin-dark.svg"><img src="assets/btn-linkedin-light.svg" alt="LinkedIn"></picture></a>&nbsp;
 <a href="mailto:akhiariy78@gmail.com"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-email-dark.svg"><img src="assets/btn-email-light.svg" alt="Email"></picture></a>&nbsp;
-<a href="https://www.reviewmyagent.today"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-website-dark.svg"><img src="assets/btn-website-light.svg" alt="ReviewMyAgent"></picture></a>
+<a href="https://github.com/akhiariy?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/btn-github-dark.svg"><img src="assets/btn-github-light.svg" alt="Repositories"></picture></a>
 
 </div>
 
@@ -22,7 +22,7 @@ I build software that turns complex systems into clear, useful experiences. Righ
 <summary><code>~$ cat now.md</code> &nbsp;<sub>— what I'm doing right now</sub></summary>
 <br>
 
-- 🛠️ Building and refining **PSC AI / ReviewMyAgent**
+- 🛠️ Building **AI-enabled products** and polished full-stack web apps
 - ✍️ Turning **SmartCity Hub** into a concise, public-facing case study
 - 🔭 Looking for **software engineering opportunities** where product thinking and implementation meet
 
@@ -47,7 +47,7 @@ I build software that turns complex systems into clear, useful experiences. Righ
 ```text
 > email     akhiariy78@gmail.com
 > linkedin  linkedin.com/in/abdullah-khiariy
-> product   reviewmyagent.today
+> github    github.com/akhiariy
 > status    open to SWE roles & interesting collaborations ✓
 ```
 
@@ -61,21 +61,6 @@ I build software that turns complex systems into clear, useful experiences. Righ
 <a href="https://www.reviewmyagent.today"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-reviewmyagent-dark.svg"><img src="assets/card-reviewmyagent-light.svg" alt="ReviewMyAgent — a platform for discovering and reviewing AI agents" width="49%"></picture></a>
 <a href="https://github.com/akhiariy?tab=repositories"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/card-smartcity-dark.svg"><img src="assets/card-smartcity-light.svg" alt="SmartCity Hub — urban services platform, case study coming soon" width="49%"></picture></a>
 </p>
-
-<details>
-<summary><b>What I owned on ReviewMyAgent</b> &nbsp;<sub>(click to expand)</sub></summary>
-<br>
-
-Built as a **Turborepo monorepo** with **Next.js, React, Supabase, and Railway**. My focus:
-
-- **Product UI** — the review, discovery, and comparison experience
-- **Authentication & verification flows** — trustworthy reviews start with trustworthy accounts
-- **Responsive design** — feels native from phone to ultrawide
-- **Platform integration** — wiring the frontend, database, and deployment together
-
-→ [Explore the live product](https://www.reviewmyagent.today) · [Source](https://github.com/psc-ai-asu/psc-ai)
-
-</details>
 
 <br>
 
